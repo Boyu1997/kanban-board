@@ -1,0 +1,11 @@
+.Card {
+  height: 120px;
+  width: 240px;
+  margin: 10px;
+  background-color: #30303030;
+  border: 1px rgba(150, 150, 150, 0.3) solid;
+  border-radius: 4px;
+}
+p {
+  color: #AFAFAF;
+}
