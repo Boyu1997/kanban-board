@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd';
+
 import ListCards from './ListCards.js';
 import './App.css';
 import cards from './data.js'
@@ -30,4 +33,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default DragDropContext(HTML5Backend)(App);
