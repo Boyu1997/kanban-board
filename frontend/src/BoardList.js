@@ -6,7 +6,7 @@ import ListCard from './ListCard.js';
 class BoardList extends Component {
 
   render() {
-    const { listName, category, cards } = this.props;
+    const { cards, listName, category, moveCard } = this.props;
     return (
       <div className="board-list">
         <h1>{listName}</h1>
@@ -16,7 +16,7 @@ class BoardList extends Component {
             card = {card}
             category = {category}
             index = {i}
-            moveCard = {this.moveCard}
+            moveCard = {moveCard}
           />
         ))}
       </div>

@@ -9,13 +9,36 @@ import './ListCard.css';
 const cardSource = {
   beginDrag(props) {
     return {
-      id: props.id,
+      id: props.card.id,
+      category: props.category,
       index: props.index,
     }
   }
 }
 
 const cardTarget = {
+  hover(props, monitor, component) {
+    const dragCategory = monitor.getItem().category
+    const dragIndex = monitor.getItem().index
+    const hoverCategory = props.category
+    const hoverIndex = props.index
+    console.log([dragCategory, dragIndex, hoverCategory, hoverIndex])
+
+    // hover over itself, do nothing
+    if (dragCategory===hoverCategory && dragIndex===hoverIndex) {
+      return;
+    }
+
+    // Time to actually perform the action
+    props.moveCard(dragCategory, dragIndex, hoverCategory, hoverIndex);
+
+    // Note: we're mutating the monitor item here!
+    // Generally it's better to avoid mutations,
+    // but it's good here for the sake of performance
+    // to avoid expensive index searches.
+    monitor.getItem().index = hoverIndex;
+    monitor.getItem().category = hoverCategory;
+  },
 }
 
 
