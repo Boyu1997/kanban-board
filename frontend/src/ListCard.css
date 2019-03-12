@@ -1,0 +1,9 @@
+.list-cards{
+  width: 25%
+}
+
+.list-card-container {
+  height: 120px;
+  width: 240px;
+  margin: 10px;
+}

@@ -1,0 +1,8 @@
+.BoardList {
+  width: 25%;
+}
+
+.board-container {
+  display: flex;
+  width: 100%;
+}
