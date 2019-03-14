@@ -8,8 +8,9 @@ import './ListCard.css';
 
 const cardSource = {
   beginDrag(props) {
+    console.log(props)
     return {
-      id: props.card.id,
+      id: props.id,
       category: props.category,
       index: props.index,
     }
@@ -22,23 +23,32 @@ const cardTarget = {
     const dragIndex = monitor.getItem().index
     const hoverCategory = props.category
     const hoverIndex = props.index
-    console.log([dragCategory, dragIndex, hoverCategory, hoverIndex])
+    const hoverId = props.id
 
     // hover over itself, do nothing
     if (dragCategory===hoverCategory && dragIndex===hoverIndex) {
       return;
     }
 
-    // Time to actually perform the action
-    props.moveCard(dragCategory, dragIndex, hoverCategory, hoverIndex);
 
-    // Note: we're mutating the monitor item here!
-    // Generally it's better to avoid mutations,
-    // but it's good here for the sake of performance
-    // to avoid expensive index searches.
-    monitor.getItem().index = hoverIndex;
-    monitor.getItem().category = hoverCategory;
+    props.dragFunctions.hoverSpace(hoverCategory, hoverIndex, hoverId);
   },
+  drop(props, monitor,component) {
+    console.log(props)
+    const dragCategory = monitor.getItem().category
+    const dragIndex = monitor.getItem().index
+    const hoverCategory = props.category
+    const hoverIndex = props.index
+    console.log('drop')
+    console.log([dragCategory, dragIndex, hoverCategory, hoverIndex])
+
+    // drop over itself, do nothing
+    if (dragCategory===hoverCategory && dragIndex===hoverIndex) {
+      return;
+    }
+
+    props.dragFunctions.moveCard(dragCategory, dragIndex, hoverCategory, hoverIndex);
+  }
 }
 
 
@@ -59,9 +69,6 @@ class ListCard extends Component {
   render() {
     const {
       card,
-      category,
-      index,
-      moveCard,
       isDragging,
       connectDragSource,
       connectDropTarget,
@@ -72,6 +79,7 @@ class ListCard extends Component {
           <div className="list-card-container">
             <Card
               card = {card}
+              isDragging = {isDragging}
             />
           </div>
         )

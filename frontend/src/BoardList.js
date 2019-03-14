@@ -6,17 +6,18 @@ import ListCard from './ListCard.js';
 class BoardList extends Component {
 
   render() {
-    const { cards, listName, category, moveCard } = this.props;
+    const { cards, listName, category, dragFunctions } = this.props;
     return (
       <div className="board-list">
         <h1>{listName}</h1>
         {cards.map((card, i) => (
           <ListCard
             key = {card.id}
+            id = {card.id}
             card = {card}
             category = {category}
             index = {i}
-            moveCard = {moveCard}
+            dragFunctions = {dragFunctions}
           />
         ))}
       </div>

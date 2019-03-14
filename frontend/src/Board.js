@@ -26,15 +26,17 @@ class Board extends Component {
     this.setState({ cards: mapCardsByStatus(this.props.cards) })
   }
 
+  hoverSpace = () => {
+    console.log("h")
+  }
+
   moveCard = (dragCategory, dragIndex, hoverCategory, hoverIndex) => {
     const cards = this.state.cards
     const dragCard = cards[dragCategory][dragIndex]
-    const hoverCard = cards[hoverCategory][hoverIndex]
 
-    cards[dragCategory][dragIndex] = hoverCard
-    cards[hoverCategory][hoverIndex] = dragCard
+    cards[hoverCategory].splice(hoverIndex, 0, dragCard)
+    cards[dragCategory].splice(dragIndex, 1)
 
-    console.log(cards)
     this.setState({ cards: cards })
   }
 
@@ -46,25 +48,37 @@ class Board extends Component {
           listName='To Do'
           category='todo'
           cards={cards.todo}
-          moveCard={this.moveCard}
+          dragFunctions={{
+            'moveCard': this.moveCard,
+            'hoverSpace': this.hoverSpace,
+          }}
         />
         <BoardList className='BoardList'
           listName='In Progress'
           category='inProgress'
           cards={cards.inProgress}
-          moveCard={this.moveCard}
+          dragFunctions={{
+            'moveCard': this.moveCard,
+            'hoverSpace': this.hoverSpace,
+          }}
         />
         <BoardList className='BoardList'
           listName='Code Review'
           category='codeReview'
           cards={cards.codeReview}
-          moveCard={this.moveCard}
+          dragFunctions={{
+            'moveCard': this.moveCard,
+            'hoverSpace': this.hoverSpace,
+          }}
         />
         <BoardList className='BoardList'
           listName='Done'
           category='done'
           cards={cards.done}
-          moveCard={this.moveCard}
+          dragFunctions={{
+            'moveCard': this.moveCard,
+            'hoverSpace': this.hoverSpace,
+          }}
         />
       </div>
     )
