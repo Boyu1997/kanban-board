@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 import ListCard from './ListCard.js';
+import ListHolder from './ListHolder.js';
 
 class BoardList extends Component {
 
@@ -20,6 +21,12 @@ class BoardList extends Component {
             moveCard={moveCard}
           />
         ))}
+        <ListHolder
+          id = {category}
+          category = {category}
+          index = {cards.length}
+          moveCard={moveCard}
+        />
       </div>
     )
   }

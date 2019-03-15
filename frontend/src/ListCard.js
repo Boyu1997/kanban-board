@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { DragSource, DropTarget, isDragging } from 'react-dnd';
-import { findDOMNode } from 'react-dom';
+import { DragSource, DropTarget } from 'react-dnd';
 import flow from 'lodash/flow';
 
 import Card from './Card.js';
@@ -25,7 +24,6 @@ const cardTarget = {
     const dragIndex = monitor.getItem().index
     const hoverCategory = props.category
     const hoverIndex = props.index
-    const hoverId = props.id
 
     // hover over itself, do nothing
     if (dragCategory===hoverCategory && dragIndex===hoverIndex) {
