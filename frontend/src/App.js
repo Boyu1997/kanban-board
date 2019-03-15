@@ -3,17 +3,26 @@ import { Route, Link } from 'react-router-dom';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 
+import Menu from './Menu.js';
 import Board from './Board.js';
 import CreateCard from './CreateCard.js'
 import './App.css';
-import data from './data.js'
+import data from './data.json'
 
 class App extends Component {
   state = {
-    cards : [],
+    cards : data.cards,
   }
-  componentWillMount() {
-    this.setState({ cards: data.cards })
+  randomCard = () => {
+    const cards = this.state.cards;
+    const categorys = ['todo', 'inProgress', 'codeReview', 'done'];
+    const card = {
+      id: [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join(''),
+      category: categorys[Math.floor(Math.random()*4)],
+      title: [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('')
+    }
+    cards.push(card)
+    this.setState({ cards: cards })
   }
 
   render() {
@@ -22,8 +31,8 @@ class App extends Component {
       <div className='App'>
         <div className='app-container'>
           <Route exact path='/' render={() => (
-            <div>
-              <Link to='/create' className='button'>New Card</Link>
+            <div className='container'>
+              <Menu randomCard={this.randomCard} />
               <Board cards={cards} />
             </div>
           )} />

@@ -1,0 +1,15 @@
+button {
+  cursor: pointer;
+  display: 'block';
+  text-decoration: 'none';
+  font-size: inherit;
+  margin: 12px;
+  color: #FFF;
+  background: #CCC;
+  padding: 10px;
+  border: none;
+}
+
+.button-container {
+  padding: 8px 0px 2px 0px;
+}

@@ -27,6 +27,9 @@ class Board extends Component {
   componentWillMount() {
     this.setState({ cards: mapCardsByCategory(this.props.cards) })
   }
+  componentWillReceiveProps(nextProps) {
+    this.setState({ cards: mapCardsByCategory(nextProps.cards) })
+  }
 
   moveCard = (dragCategory, dragIndex, hoverCategory, hoverIndex) => {
     const cards = this.state.cards

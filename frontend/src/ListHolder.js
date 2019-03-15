@@ -33,7 +33,7 @@ class ListHolder extends Component {
     const { connectDropTarget } = this.props;
     return (
       connectDropTarget(
-        <div className="list-card-container"></div>
+        <div className="list-card"></div>
       )
     )
   }

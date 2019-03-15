@@ -62,7 +62,7 @@ class ListCard extends Component {
     return (
       connectDragSource(
         connectDropTarget(
-          <div className="list-card-container">
+          <div className="list-card">
             <Card
               card = {card}
               isDragging = {isDragging}

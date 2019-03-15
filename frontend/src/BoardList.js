@@ -4,13 +4,16 @@ import { DragDropContext } from 'react-dnd';
 import ListCard from './ListCard.js';
 import ListHolder from './ListHolder.js';
 
+import './BoardList.css';
+
 class BoardList extends Component {
 
   render() {
     const { cards, listName, category, moveCard } = this.props;
     return (
-      <div className="board-list">
+      <div className={category==='todo' ? 'board-list-left': 'board-list'}>
         <h1>{listName}</h1>
+        <div className='name-card-separate' />
         {cards.map((card, i) => (
           <ListCard
             key = {card.id}

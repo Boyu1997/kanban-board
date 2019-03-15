@@ -1,0 +1,22 @@
+h1 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.board-list-left {
+  width: 25%;
+  border: 2px rgba(48, 48, 48, 0.5) solid;
+}
+
+.board-list {
+  width: 25%;
+  border-width: 2px 2px 2px 0px;
+  border-color: rgba(48, 48, 48, 0.5);
+  border-style: solid;
+}
+
+.name-card-separate {
+  width: 100%;
+  border-top: 2px rgba(96, 96, 96, 0.5) solid;
+}
