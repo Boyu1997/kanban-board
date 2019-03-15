@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import './Menu.css';
+import './style/Menu.css';
 
 
 class Menu extends Component {

@@ -3,7 +3,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 
 import BoardList from './BoardList.js';
-import './Board.css';
+import './style/Board.css';
 
 function mapCardsByCategory(cards) {
   const mappedCards = {

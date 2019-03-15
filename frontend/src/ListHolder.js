@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { DropTarget } from 'react-dnd';
 
-import './ListCard.css';
+import './style/ListCard.css';
 
 const cardTarget = {
   hover(props, monitor, component) {

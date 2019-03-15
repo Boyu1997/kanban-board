@@ -4,7 +4,7 @@ import { DragDropContext } from 'react-dnd';
 import ListCard from './ListCard.js';
 import ListHolder from './ListHolder.js';
 
-import './BoardList.css';
+import './style/BoardList.css';
 
 class BoardList extends Component {
 

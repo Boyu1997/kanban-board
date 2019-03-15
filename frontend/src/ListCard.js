@@ -3,7 +3,7 @@ import { DragSource, DropTarget } from 'react-dnd';
 import flow from 'lodash/flow';
 
 import Card from './Card.js';
-import './ListCard.css';
+import './style/ListCard.css';
 
 const cardSource = {
   beginDrag(props) {

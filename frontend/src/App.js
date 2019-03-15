@@ -6,7 +6,7 @@ import { DragDropContext } from 'react-dnd';
 import Menu from './Menu.js';
 import Board from './Board.js';
 import CreateCard from './CreateCard.js'
-import './App.css';
+import './style/App.css';
 import data from './data.json'
 
 class App extends Component {
