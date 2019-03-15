@@ -4,9 +4,8 @@ import { DragDropContext } from 'react-dnd';
 
 import BoardList from './BoardList.js';
 import './Board.css';
-import update from 'immutability-helper';
 
-function mapCardsByStatus(cards) {
+function mapCardsByCategory(cards) {
   const mappedCards = {
     'todo': [],
     'inProgress': [],
@@ -15,27 +14,26 @@ function mapCardsByStatus(cards) {
   }
 
   cards.map(card => {
-    mappedCards[card.status].push(card)
+    mappedCards[card.category].push(card)
   })
 
   return mappedCards
 }
 
 class Board extends Component {
-  componentWillMount() {
-    this.setState({ cards: mapCardsByStatus(this.props.cards) })
+  state = {
+    hoverPlaceholderCard: 'None'
   }
-
-  hoverSpace = () => {
-    console.log("h")
+  componentWillMount() {
+    this.setState({ cards: mapCardsByCategory(this.props.cards) })
   }
 
   moveCard = (dragCategory, dragIndex, hoverCategory, hoverIndex) => {
     const cards = this.state.cards
     const dragCard = cards[dragCategory][dragIndex]
 
-    cards[hoverCategory].splice(hoverIndex, 0, dragCard)
     cards[dragCategory].splice(dragIndex, 1)
+    cards[hoverCategory].splice(hoverIndex, 0, dragCard)
 
     this.setState({ cards: cards })
   }
@@ -48,37 +46,25 @@ class Board extends Component {
           listName='To Do'
           category='todo'
           cards={cards.todo}
-          dragFunctions={{
-            'moveCard': this.moveCard,
-            'hoverSpace': this.hoverSpace,
-          }}
+          moveCard={this.moveCard}
         />
         <BoardList className='BoardList'
           listName='In Progress'
           category='inProgress'
           cards={cards.inProgress}
-          dragFunctions={{
-            'moveCard': this.moveCard,
-            'hoverSpace': this.hoverSpace,
-          }}
+          moveCard={this.moveCard}
         />
         <BoardList className='BoardList'
           listName='Code Review'
           category='codeReview'
           cards={cards.codeReview}
-          dragFunctions={{
-            'moveCard': this.moveCard,
-            'hoverSpace': this.hoverSpace,
-          }}
+          moveCard={this.moveCard}
         />
         <BoardList className='BoardList'
           listName='Done'
           category='done'
           cards={cards.done}
-          dragFunctions={{
-            'moveCard': this.moveCard,
-            'hoverSpace': this.hoverSpace,
-          }}
+          moveCard={this.moveCard}
         />
       </div>
     )

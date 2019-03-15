@@ -2,57 +2,57 @@ const data = {
   'cards': [
     {
       'id': '1',
-      'status': 'todo',
+      'category': 'todo',
       'title': 'Foo Bar',
     },
     {
       'id': '2',
-      'status': 'todo',
+      'category': 'todo',
       'title': 'Hello World',
     },
     {
       'id': '3',
-      'status': 'todo',
+      'category': 'todo',
       'title': 'Brooks\'s Law',
     },
     {
       'id': '4',
-      'status': 'todo',
+      'category': 'todo',
       'title': 'Baz Quux',
     },
     {
       'id': '5',
-      'status': 'inProgress',
+      'category': 'inProgress',
       'title': 'Flag Bit',
     },
     {
       'id': '6',
-      'status': 'inProgress',
+      'category': 'inProgress',
       'title': 'Monkey Scratch',
     },
     {
       'id': '7',
-      'status': 'codeReview',
+      'category': 'codeReview',
       'title': 'Moose Call',
     },
     {
       'id': '8',
-      'status': 'codeReview',
+      'category': 'codeReview',
       'title': 'Pippo Pluto',
     },
     {
       'id': '9',
-      'status': 'codeReview',
+      'category': 'codeReview',
       'title': 'Blarg Wibble',
     },
     {
       'id': '10',
-      'status': 'codeReview',
+      'category': 'codeReview',
       'title': 'Murphy\'s Law',
     },
     {
       'id': '11',
-      'status': 'done',
+      'category': 'done',
       'title': 'Alice Bob',
     },
   ],

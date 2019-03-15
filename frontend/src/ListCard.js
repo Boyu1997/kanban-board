@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { DragSource, DropTarget } from 'react-dnd';
+import { DragSource, DropTarget, isDragging } from 'react-dnd';
 import { findDOMNode } from 'react-dom';
 import flow from 'lodash/flow';
 
@@ -8,12 +8,14 @@ import './ListCard.css';
 
 const cardSource = {
   beginDrag(props) {
-    console.log(props)
     return {
       id: props.id,
       category: props.category,
       index: props.index,
     }
+  },
+  isDragging(props, monitor) {
+    return props.id === monitor.getItem().id;
   }
 }
 
@@ -30,24 +32,10 @@ const cardTarget = {
       return;
     }
 
-
-    props.dragFunctions.hoverSpace(hoverCategory, hoverIndex, hoverId);
-  },
-  drop(props, monitor,component) {
-    console.log(props)
-    const dragCategory = monitor.getItem().category
-    const dragIndex = monitor.getItem().index
-    const hoverCategory = props.category
-    const hoverIndex = props.index
-    console.log('drop')
-    console.log([dragCategory, dragIndex, hoverCategory, hoverIndex])
-
-    // drop over itself, do nothing
-    if (dragCategory===hoverCategory && dragIndex===hoverIndex) {
-      return;
-    }
-
-    props.dragFunctions.moveCard(dragCategory, dragIndex, hoverCategory, hoverIndex);
+    // otherwise, update card position
+    props.moveCard(dragCategory, dragIndex, hoverCategory, hoverIndex);
+    monitor.getItem().index = hoverIndex;
+    monitor.getItem().category = hoverCategory;
   }
 }
 
