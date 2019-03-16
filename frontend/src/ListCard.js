@@ -52,10 +52,15 @@ function dropCollect(connect) {
 }
 
 class ListCard extends Component {
+  deleteCardHandler = () => {
+    const { category, index, deleteCard } = this.props;
+    deleteCard(category, index);
+  }
   render() {
     const {
       card,
       isDragging,
+      deleteCard,
       connectDragSource,
       connectDropTarget,
     } = this.props;
@@ -64,8 +69,9 @@ class ListCard extends Component {
         connectDropTarget(
           <div className="list-card">
             <Card
-              card = {card}
-              isDragging = {isDragging}
+              card={card}
+              isDragging={isDragging}
+              deleteCardHandler={this.deleteCardHandler}
             />
           </div>
         )

@@ -41,6 +41,12 @@ class Board extends Component {
     this.setState({ cards: cards })
   }
 
+  deleteCard = (category, index) => {
+    const cards = this.state.cards;
+    cards[category].splice(index, 1)
+    this.setState({ cards: cards })
+  }
+
   render() {
     const { cards } = this.state
     return (
@@ -50,24 +56,28 @@ class Board extends Component {
           category='todo'
           cards={cards.todo}
           moveCard={this.moveCard}
+          deleteCard={this.deleteCard}
         />
         <BoardList className='BoardList'
           listName='In Progress'
           category='inProgress'
           cards={cards.inProgress}
           moveCard={this.moveCard}
+          deleteCard={this.deleteCard}
         />
         <BoardList className='BoardList'
           listName='Code Review'
           category='codeReview'
           cards={cards.codeReview}
           moveCard={this.moveCard}
+          deleteCard={this.deleteCard}
         />
         <BoardList className='BoardList'
           listName='Done'
           category='done'
           cards={cards.done}
           moveCard={this.moveCard}
+          deleteCard={this.deleteCard}
         />
       </div>
     )

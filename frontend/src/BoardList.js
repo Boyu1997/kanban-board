@@ -9,7 +9,7 @@ import './style/BoardList.css';
 class BoardList extends Component {
 
   render() {
-    const { cards, listName, category, moveCard } = this.props;
+    const { cards, listName, category, moveCard, deleteCard } = this.props;
     return (
       <div className={category==='todo' ? 'board-list-left': 'board-list'}>
         <h1>{listName}</h1>
@@ -22,6 +22,7 @@ class BoardList extends Component {
             category = {category}
             index = {i}
             moveCard={moveCard}
+            deleteCard={deleteCard}
           />
         ))}
         <ListHolder
