@@ -1,59 +1,44 @@
 {
-  "cards": [
-    {
-      "id": "1",
-      "category": "todo",
-      "title": "Foo Bar"
-    },
-    {
-      "id": "2",
-      "category": "todo",
-      "title": "Hello World"
-    },
-    {
-      "id": "3",
-      "category": "todo",
-      "title": "Brooks\"s Law"
-    },
-    {
-      "id": "4",
-      "category": "todo",
-      "title": "Baz Quux"
-    },
-    {
-      "id": "5",
-      "category": "inProgress",
-      "title": "Flag Bit"
-    },
-    {
-      "id": "6",
-      "category": "inProgress",
-      "title": "Monkey Scratch"
-    },
-    {
-      "id": "7",
-      "category": "codeReview",
-      "title": "Moose Call"
-    },
-    {
-      "id": "8",
-      "category": "codeReview",
-      "title": "Pippo Pluto"
-    },
-    {
-      "id": "9",
-      "category": "codeReview",
-      "title": "Blarg Wibble"
-    },
-    {
-      "id": "10",
-      "category": "codeReview",
-      "title": "Murphy\"s Law"
-    },
-    {
-      "id": "11",
-      "category": "done",
-      "title": "Alice Bob"
-    }
-  ]
+  "cards": {
+    "todo": [
+      {
+        "id": "1",
+        "title": "Foo Bar"
+      },
+      {
+        "id": "2",
+        "title": "Hello World"
+      }
+    ],
+    "inProgress": [
+      {
+        "id": "3",
+        "title": "Baz Quux"
+      },
+      {
+        "id": "4",
+        "title": "Flag Bit"
+      },
+      {
+        "id": "5",
+        "title": "Monkey Scratch"
+      }
+    ],
+    "codeReview": [
+      {
+        "id": "6",
+        "title": "Pippo Pluto"
+      }
+    ],
+    "done": [
+      {
+        "id": "7",
+        "title": "Blarg Wibble"
+      },
+      {
+        "id": "8",
+        "title": "Alice Bob"
+      }
+    ]
+  }
 }

@@ -5,30 +5,15 @@ import { DragDropContext } from 'react-dnd';
 import BoardList from './BoardList.js';
 import './style/Board.css';
 
-function mapCardsByCategory(cards) {
-  const mappedCards = {
-    'todo': [],
-    'inProgress': [],
-    'codeReview': [],
-    'done': [],
-  }
-
-  cards.map(card => {
-    mappedCards[card.category].push(card)
-  })
-
-  return mappedCards
-}
-
 class Board extends Component {
   state = {
     hoverPlaceholderCard: 'None'
   }
   componentWillMount() {
-    this.setState({ cards: mapCardsByCategory(this.props.cards) })
+    this.setState({ cards: this.props.cards })
   }
   componentWillReceiveProps(nextProps) {
-    this.setState({ cards: mapCardsByCategory(nextProps.cards) })
+    this.setState({ cards: nextProps.cards })
   }
 
   moveCard = (dragCategory, dragIndex, hoverCategory, hoverIndex) => {

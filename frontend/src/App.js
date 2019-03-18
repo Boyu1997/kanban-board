@@ -16,12 +16,12 @@ class App extends Component {
   randomCard = () => {
     const cards = this.state.cards;
     const categorys = ['todo', 'inProgress', 'codeReview', 'done'];
+    const category = categorys[Math.floor(Math.random()*4)]
     const card = {
       id: [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join(''),
-      category: categorys[Math.floor(Math.random()*4)],
       title: [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('')
     }
-    cards.push(card)
+    cards[category].push(card)
     this.setState({ cards: cards })
   }
 
