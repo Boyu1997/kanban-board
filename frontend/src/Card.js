@@ -12,8 +12,8 @@ class Card extends Component {
           opacity: isDragging ? 0.3 : 1,
         }}>
         <p>{card.title}</p>
-        <div className='title-context-separate'></div>
-        <p>{card.context}</p>
+        <div className='title-content-separate'></div>
+        <p>{card.content}</p>
     	  <img className='delete-icon' src={trashIcon} onClick={deleteCardHandler} alt="Delete"/>
       </div>
     )

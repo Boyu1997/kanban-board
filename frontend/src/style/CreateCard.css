@@ -1,0 +1,35 @@
+.create-form {
+  padding-top: 20px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input-container {
+  margin-top: 18px;
+}
+
+.input-label {
+  width: 25%;
+  display: inline-block;
+  color: #FFF;
+  font-size: 24px;
+}
+
+.input-text {
+  width: 70%;
+  height: 24px;
+  font-size: 20px;
+  display: inline-block;
+}
+
+.submit-button {
+  cursor: pointer;
+  font-size: inherit;
+  margin: 12px;
+  color: #FFF;
+  background: #3280F5;
+  border-radius: 8px;
+  padding: 10px;
+  border: none;
+}

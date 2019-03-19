@@ -1,7 +1,5 @@
 button {
   cursor: pointer;
-  display: 'block';
-  text-decoration: 'none';
   font-size: inherit;
   margin: 12px;
   color: #FFF;
