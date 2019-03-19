@@ -5,7 +5,8 @@ button {
   font-size: inherit;
   margin: 12px;
   color: #FFF;
-  background: #CCC;
+  background: #3280F5;
+  border-radius: 8px;
   padding: 10px;
   border: none;
 }

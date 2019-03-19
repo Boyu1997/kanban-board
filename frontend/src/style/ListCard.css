@@ -5,3 +5,15 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+@media screen and (max-width: 1200px) {
+  .list-card {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .list-card {
+    width: 160px;
+  }
+}
