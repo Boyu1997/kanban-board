@@ -20,9 +20,11 @@ class App extends Component {
     const category = categorys[Math.floor(Math.random()*4)]
     const id = cards['todo'].length + cards['inProgress'].length
                + cards['codeReview'].length + cards['done'].length + 1
+    const randomWords = require('random-words');
     const card = {
       id: id,
-      title: [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('')
+      title: randomWords({ min: 1, max: 3, join: ' ' }),
+      content: randomWords({ min: 2, max: 6, join: ' ' })
     }
     cards[category].push(card)
     this.setState({ cards: cards })
