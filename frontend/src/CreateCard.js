@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
 
 import './style/CreateCard.css';
 
@@ -16,11 +15,11 @@ class CreateCard extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    if (this.state.title== "") {
+    if (this.state.title === "") {
       alert('Title is required!');
       return;
     }
-    if (this.state.content== "") {
+    if (this.state.content === "") {
       alert('Content is required!');
       return;
     }

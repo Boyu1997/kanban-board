@@ -60,7 +60,6 @@ class ListCard extends Component {
     const {
       card,
       isDragging,
-      deleteCard,
       connectDragSource,
       connectDropTarget,
     } = this.props;
