@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Redirect } from 'react-router-dom';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 
@@ -13,15 +13,26 @@ class App extends Component {
   state = {
     cards : data.cards,
   }
+
   randomCard = () => {
     const cards = this.state.cards;
     const categorys = ['todo', 'inProgress', 'codeReview', 'done'];
     const category = categorys[Math.floor(Math.random()*4)]
+    const id = cards['todo'].length + cards['inProgress'].length
+               + cards['codeReview'].length + cards['done'].length + 1
     const card = {
-      id: [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join(''),
+      id: id,
       title: [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('')
     }
     cards[category].push(card)
+    this.setState({ cards: cards })
+  }
+
+  createCard = (card) => {
+    const cards = this.state.cards;
+    card.id = cards['todo'].length + cards['inProgress'].length
+              + cards['codeReview'].length + cards['done'].length + 1
+    cards[card.category].push(card)
     this.setState({ cards: cards })
   }
 
@@ -36,9 +47,12 @@ class App extends Component {
               <Board cards={cards} />
             </div>
           )} />
-          <Route path='/create' render={() => (
+          <Route path='/create' render={({ history }) => (
             <div>
-              <CreateCard />
+              <CreateCard
+                createCard={this.createCard}
+                history={history}
+              />
             </div>
           )} />
         </div>
