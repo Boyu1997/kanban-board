@@ -16,10 +16,19 @@ class CreateCard extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    if (this.state.title== "") {
+      alert('Title is required!');
+      return;
+    }
+    if (this.state.content== "") {
+      alert('Content is required!');
+      return;
+    }
     // if this.state.
     // alert('A card was submitted: ' + this.state.title + this.state.category);
     this.props.createCard(this.state);
     this.props.history.push("/");
+    return;
   }
   render() {
     const { title, content, category } = this.state;
